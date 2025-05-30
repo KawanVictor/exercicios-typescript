@@ -21,8 +21,8 @@ Desenvolver 18 algoritmos usando **TypeScript puro**, aplicando conceitos fundam
 
 ## 👥 Integrantes do grupo
 
-Kawan Victor Cavalcante - RA: 24151609-2
 Arthur de Souza Linsingen Vieira - Ra: 24000860-2
-Pedro Henrique Ribeiro - RA: 24183175-2
-Evelyn Maria Gura - RA: 24234673-2
 Bruno Quoos - RA 24160048-2
+Evelyn Maria Gura - RA: 24234673-2
+Kawan Victor Cavalcante - RA: 24151609-2
+Pedro Henrique Ribeiro - RA: 24183175-2

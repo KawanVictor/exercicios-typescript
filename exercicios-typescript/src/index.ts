@@ -24,42 +24,60 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-// Mapeamento das funções dos exercícios
+// Nomes dos exercícios
+const nomesExercicios: string[] = [
+  "Soma de dois números",
+  "Par ou ímpar",
+  "Média de três notas",
+  "Celsius para Fahrenheit",
+  "Números pares de 1 a 20",
+  "Ler e exibir 5 números",
+  "Maior número do array",
+  "Contar vogais",
+  "Calculadora básica",
+  "Ordenar array",
+  "Classe Pessoa",
+  "Herança: Pessoa → Aluno",
+  "Interface Veículo/Classe Carro",
+  "Tabuada de um número",
+  "Calculadora de IMC",
+  "Validador de senha",
+  "Jogo de adivinhação",
+  "Contador de palavras"
+];
+
+// Mapeamento dos exercícios
 const exercicios: { [key: string]: () => void } = {
-  "1": ex01,
-  "2": ex02,
-  "3": ex03,
-  "4": ex04,
-  "5": ex05,
-  "6": ex06,
-  "7": ex07,
-  "8": ex08,
-  "9": ex09,
-  "10": ex10,
-  "11": ex11,
-  "12": ex12,
-  "13": ex13,
-  "14": ex14,
-  "15": ex15,
-  "16": ex16,
-  "17": ex17,
-  "18": ex18,
+  "1": ex01,  "2": ex02,  "3": ex03,
+  "4": ex04,  "5": ex05,  "6": ex06,
+  "7": ex07,  "8": ex08,  "9": ex09,
+  "10": ex10, "11": ex11, "12": ex12,
+  "13": ex13, "14": ex14, "15": ex15,
+  "16": ex16, "17": ex17, "18": ex18,
 };
 
-// Função principal para exibir o menu
+// Função para exibir o menu
 function exibirMenu(): void {
-  console.log("\n===== MENU DE EXERCÍCIOS =====");
-  for (let i = 1; i <= 18; i++) {
-    console.log(`${i} - Exercício ${i.toString().padStart(2, '0')}`);
-  }
-  console.log("0 - Sair");
+  console.clear();
+  console.log("\n===== MENU DE EXERCÍCIOS =====\n");
 
-  rl.question("Escolha uma opção: ", (opcao: string) => {
+  nomesExercicios.forEach((nome, i) => {
+    const numero = (i + 1).toString().padStart(2, '0');
+    console.log(`${numero} - ${nome}`);
+  });
+
+  console.log("\n00 - Sair");
+
+  rl.question("\nEscolha uma opção: ", (opcao: string) => {
+    const opcaoLimpa = opcao.trim();
+
     console.clear();
-    if (opcao === "0") {
+
+    if (opcaoLimpa === "0" || opcaoLimpa === "00") {
+      console.log("Encerrando o programa...");
       rl.close();
-    } else if (exercicios[opcao]) {
-      exercicios[opcao]();
+    } else if (exercicios[opcaoLimpa]) {
+      exercicios[opcaoLimpa]();
       voltarAoMenu();
     } else {
       console.log("Opção inválida!");
@@ -68,10 +86,9 @@ function exibirMenu(): void {
   });
 }
 
-// Espera o usuário pressionar Enter antes de voltar ao menu
+// Espera o usuário pressionar Enter para voltar ao menu
 function voltarAoMenu(): void {
-  rl.question("\nPressione Enter para voltar ao menu...", () => {
-    console.clear();
+  rl.question("\n--- Fim do exercício ---\n\nPressione Enter para voltar ao menu...", () => {
     exibirMenu();
   });
 }
